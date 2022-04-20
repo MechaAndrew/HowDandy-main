@@ -74,7 +74,7 @@ class Play extends Phaser.Scene {
                 this.dropCoolDown -= 1;
             }//end if
 
-            //how logn the wind will be on screen
+            //how long the wind will be on screen
             if(this.windPlaced = true && this.windDuration > 0) {
                 this.windDuration -= 1;
                 this.windPlaced = true;
@@ -82,7 +82,7 @@ class Play extends Phaser.Scene {
             else if(this.windPlaced=true && this.windDuration <= 0) {
                 this.windPlaced = false;
                 // this.wind.destroy();
-                this.wind.destroy();//we gotta remove the sprite from existing on screen
+                // this.wind.destroy();//we gotta remove the sprite from existing on screen
             }
 
             //cooldown the wind
