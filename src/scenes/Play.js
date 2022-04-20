@@ -67,7 +67,7 @@ class Play extends Phaser.Scene {
         }
 
         if (this.gameOver != true) {
-            console.log(this.windDuration);
+            // console.log(this.windDuration);
 
             //while the cool down is not reset to 0, keep removing the value
             if (this.dropCoolDown > 0) {
