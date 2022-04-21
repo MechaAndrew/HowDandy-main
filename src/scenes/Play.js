@@ -43,7 +43,7 @@ class Play extends Phaser.Scene {
         // creating dandelion sprite
         // parameters: x pos, y pos, texture, frame
         this.player = this.physics.add.sprite(config.width/3, config.height/2, 'dandy',0);
-        this.player.setGravityY(0); // gravity strength. 5 is good
+        this.player.setGravityY(5); // gravity strength. 5 is good
         this.player.setBounce(0.5, 0.5);
         this.player.setVelocity(0,0);
   
@@ -75,15 +75,7 @@ class Play extends Phaser.Scene {
             }//end if
 
             //how long the wind will be on screen
-            if(this.windPlaced = true && this.windDuration > 0) {
-                this.windDuration -= 1;
-                this.windPlaced = true;
-            }
-            else if(this.windPlaced=true && this.windDuration <= 0) {
-                this.windPlaced = false;
-                // this.wind.destroy();
-                // this.wind.destroy();//we gotta remove the sprite from existing on screen
-            }
+           
 
             //cooldown the wind
             if (this.windCoolDown > 0) {
@@ -129,8 +121,19 @@ class Play extends Phaser.Scene {
                 // nvm this does not work </3
                
             }
-            if(this.windDuration > 0) {
+            // if(this.windDuration > 0) {
+            //     this.physics.add.overlap(this.wind, this.player, this.collisionDandelion(this.player));
+            // }
+            if(this.windPlaced = true && this.windDuration > 0) {
                 this.physics.add.overlap(this.wind, this.player, this.collisionDandelion(this.player));
+                this.windDuration -= 1;
+                this.windPlaced = true;
+            }
+            if(this.windPlaced=true && this.windDuration <= 0) {
+                // this.physics.add.overlap(this.wind, this.player, this.player.body.velocity.x = 0);
+                this.windPlaced = false;
+                // this.wind.destroy();
+                // this.wind.alpha = 0;//we gotta remove the sprite from existing on screen
             }
 
         }
